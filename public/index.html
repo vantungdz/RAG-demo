@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RAG Web Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>RAG Web Demo</h1>
+    <p class="subtitle">Ask a question. Answers are based only on retrieved document chunks.</p>
+
+    <form id="query-form">
+      <label for="question">Question</label>
+      <textarea id="question" name="question" rows="3" placeholder="Enter your question..." required></textarea>
+      <button type="submit" id="submit-btn">Submit</button>
+    </form>
+
+    <div id="loading" class="loading" hidden>Loading…</div>
+    <div id="error" class="error" hidden></div>
+
+    <section id="results" class="results" hidden>
+      <h2>Retrieved chunks</h2>
+      <div id="chunks" class="chunks"></div>
+      <h2>Answer</h2>
+      <div id="answer" class="answer"></div>
+    </section>
+  </div>
+
+  <script>
+    const form = document.getElementById('query-form');
+    const questionInput = document.getElementById('question');
+    const submitBtn = document.getElementById('submit-btn');
+    const loadingEl = document.getElementById('loading');
+    const errorEl = document.getElementById('error');
+    const resultsEl = document.getElementById('results');
+    const chunksEl = document.getElementById('chunks');
+    const answerEl = document.getElementById('answer');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const question = questionInput.value.trim();
+      if (!question) return;
+
+      errorEl.hidden = true;
+      errorEl.textContent = '';
+      resultsEl.hidden = true;
+      submitBtn.disabled = true;
+      loadingEl.hidden = false;
+
+      try {
+        const res = await fetch('/api/query', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ question }),
+        });
+        const data = await res.json();
+
+        if (!res.ok) {
+          throw new Error(data.error || 'Request failed');
+        }
+
+        chunksEl.innerHTML = '';
+        data.chunks.forEach((chunk, i) => {
+          const card = document.createElement('div');
+          card.className = 'chunk-card';
+          card.innerHTML = `
+            <div class="chunk-meta">#${i + 1} — ${escapeHtml(chunk.sourceFile)} · similarity: ${chunk.similarity}</div>
+            <div class="chunk-text">${escapeHtml(chunk.text)}</div>
+          `;
+          chunksEl.appendChild(card);
+        });
+
+        answerEl.textContent = data.answer;
+        resultsEl.hidden = false;
+      } catch (err) {
+        errorEl.textContent = err.message || 'Something went wrong';
+        errorEl.hidden = false;
+      } finally {
+        submitBtn.disabled = false;
+        loadingEl.hidden = true;
+      }
+    });
+
+    function escapeHtml(s) {
+      const div = document.createElement('div');
+      div.textContent = s;
+      return div.innerHTML;
+    }
+  </script>
+</body>
+</html>

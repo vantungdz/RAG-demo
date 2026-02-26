@@ -1,0 +1,24 @@
+TỔNG QUAN KIẾN TRÚC HỆ THỐNG CLOUD
+
+1. Frontend
+Ứng dụng frontend được xây dựng bằng React và triển khai trên CDN để tối ưu tốc độ truy cập toàn cầu.
+
+2. Backend
+Backend sử dụng Node.js và Express.
+Hệ thống chạy trong container Docker.
+
+3. Cơ sở dữ liệu
+Cơ sở dữ liệu chính là PostgreSQL.
+Redis được sử dụng làm bộ nhớ đệm (cache) để tăng hiệu suất.
+
+4. Xác thực
+Hệ thống sử dụng JWT (JSON Web Token) cho cơ chế xác thực không lưu trạng thái.
+Mật khẩu được mã hóa bằng bcrypt.
+
+5. Triển khai
+Ứng dụng được triển khai trên Kubernetes.
+Hệ thống có khả năng tự động mở rộng (auto-scaling) dựa trên mức sử dụng CPU.
+
+6. Giám sát
+Prometheus được dùng để thu thập metric.
+Grafana được dùng để trực quan hóa dữ liệu giám sát.

@@ -1,0 +1,23 @@
+QUY ĐỊNH SỬ DỤNG CÔNG CỤ AI NỘI BỘ
+
+1. Mục đích
+Tài liệu này quy định cách sử dụng các công cụ trí tuệ nhân tạo (AI) trong công ty nhằm đảm bảo an toàn thông tin và tuân thủ quy định bảo mật.
+
+2. Phạm vi áp dụng
+Áp dụng cho toàn bộ nhân viên và cộng tác viên sử dụng AI trong công việc.
+
+3. Bảo mật dữ liệu
+Nhân viên KHÔNG được nhập:
+- Thông tin khách hàng
+- Dữ liệu cá nhân (CMND, CCCD, số điện thoại riêng tư)
+- Mã nguồn độc quyền
+vào các dịch vụ AI công cộng.
+
+4. Kiểm duyệt nội dung
+Mọi nội dung do AI tạo ra phải được con người kiểm tra lại trước khi sử dụng chính thức.
+
+5. Quyết định kinh doanh
+AI chỉ được dùng để tham khảo. Mọi quyết định chiến lược phải do quản lý phê duyệt.
+
+6. Lưu trữ và ghi log
+Tất cả các hoạt động sử dụng AI trong quy trình nội bộ phải được ghi log để phục vụ kiểm tra khi cần thiết.
