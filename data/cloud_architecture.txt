@@ -1,24 +1,25 @@
-TỔNG QUAN KIẾN TRÚC HỆ THỐNG CLOUD
+Cloud Architecture Overview
+
+This document describes the architecture of the web application deployed in the cloud.
 
 1. Frontend
-Ứng dụng frontend được xây dựng bằng React và triển khai trên CDN để tối ưu tốc độ truy cập toàn cầu.
+The frontend is built using React and deployed on a CDN for fast global delivery.
 
 2. Backend
-Backend sử dụng Node.js và Express.
-Hệ thống chạy trong container Docker.
+The backend is implemented using Node.js and Express. It runs inside Docker containers.
 
-3. Cơ sở dữ liệu
-Cơ sở dữ liệu chính là PostgreSQL.
-Redis được sử dụng làm bộ nhớ đệm (cache) để tăng hiệu suất.
+3. Database
+The system uses PostgreSQL as the primary database.
+Redis is used for caching to improve performance.
 
-4. Xác thực
-Hệ thống sử dụng JWT (JSON Web Token) cho cơ chế xác thực không lưu trạng thái.
-Mật khẩu được mã hóa bằng bcrypt.
+4. Authentication
+JWT (JSON Web Tokens) are used for stateless authentication.
+Passwords are hashed using bcrypt.
 
-5. Triển khai
-Ứng dụng được triển khai trên Kubernetes.
-Hệ thống có khả năng tự động mở rộng (auto-scaling) dựa trên mức sử dụng CPU.
+5. Deployment
+The application is deployed using Kubernetes.
+Auto-scaling is enabled based on CPU usage.
 
-6. Giám sát
-Prometheus được dùng để thu thập metric.
-Grafana được dùng để trực quan hóa dữ liệu giám sát.
+6. Monitoring
+Prometheus collects metrics.
+Grafana is used for visualization.

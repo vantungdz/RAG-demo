@@ -1,23 +1,23 @@
-QUY ĐỊNH SỬ DỤNG CÔNG CỤ AI NỘI BỘ
+AI Usage Policy – Internal Guidelines
 
-1. Mục đích
-Tài liệu này quy định cách sử dụng các công cụ trí tuệ nhân tạo (AI) trong công ty nhằm đảm bảo an toàn thông tin và tuân thủ quy định bảo mật.
+This document describes the company policy for using Artificial Intelligence tools internally.
 
-2. Phạm vi áp dụng
-Áp dụng cho toàn bộ nhân viên và cộng tác viên sử dụng AI trong công việc.
+1. Purpose
+AI tools such as large language models can be used to assist with drafting documents, generating code, and summarizing information. However, AI outputs must always be reviewed by a human before publication.
 
-3. Bảo mật dữ liệu
-Nhân viên KHÔNG được nhập:
-- Thông tin khách hàng
-- Dữ liệu cá nhân (CMND, CCCD, số điện thoại riêng tư)
-- Mã nguồn độc quyền
-vào các dịch vụ AI công cộng.
+2. Data Privacy
+Employees must NOT input confidential customer data, personal identifiable information (PII), or proprietary algorithms into public AI services.
 
-4. Kiểm duyệt nội dung
-Mọi nội dung do AI tạo ra phải được con người kiểm tra lại trước khi sử dụng chính thức.
+3. Code Generation
+AI-generated code must go through:
+- Code review
+- Security scan
+- Performance testing
 
-5. Quyết định kinh doanh
-AI chỉ được dùng để tham khảo. Mọi quyết định chiến lược phải do quản lý phê duyệt.
+4. Decision Making
+AI tools are not allowed to make final business decisions. They may provide recommendations, but a human must approve all strategic decisions.
 
-6. Lưu trữ và ghi log
-Tất cả các hoạt động sử dụng AI trong quy trình nội bộ phải được ghi log để phục vụ kiểm tra khi cần thiết.
+5. Logging and Monitoring
+All AI-assisted workflows must be logged for auditing purposes.
+
+Violation of this policy may result in disciplinary action.

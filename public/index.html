@@ -23,8 +23,6 @@
     <section id="results" class="results" hidden>
       <h2>Retrieved chunks</h2>
       <div id="chunks" class="chunks"></div>
-      <h2>Answer</h2>
-      <div id="answer" class="answer"></div>
     </section>
   </div>
 
@@ -44,7 +42,6 @@
       if (!question) return;
 
       errorEl.hidden = true;
-      errorEl.textContent = '';
       resultsEl.hidden = true;
       submitBtn.disabled = true;
       loadingEl.hidden = false;
@@ -72,10 +69,8 @@
           chunksEl.appendChild(card);
         });
 
-        answerEl.textContent = data.answer;
         resultsEl.hidden = false;
       } catch (err) {
-        errorEl.textContent = err.message || 'Something went wrong';
         errorEl.hidden = false;
       } finally {
         submitBtn.disabled = false;

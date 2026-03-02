@@ -14,7 +14,7 @@ const app = express();
 const EMBEDDINGS_PATH = path.join(__dirname, 'embeddings.json');
 const CHAT_MODEL = 'gpt-4o-mini';
 const TOP_K = 3;
-const SIMILARITY_THRESHOLD = 0.75; // Lọc nhiễu: chỉ giữ chunk thực sự liên quan
+const SIMILARITY_THRESHOLD = 0.75; 
 const NOT_AVAILABLE_MSG = 'The answer is not available in the provided documents.';
 
 app.use(express.json());
@@ -75,7 +75,6 @@ app.post('/api/query', async (req, res) => {
     if (!apiKey) {
       return res.json({
         chunks: chunksPayload,
-        answer: 'OpenAI API key is not set. Configure OPENAI_API_KEY to generate answers from the retrieved context.',
       });
     }
 
